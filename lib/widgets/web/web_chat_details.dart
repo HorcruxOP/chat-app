@@ -22,7 +22,9 @@ class _WebChatDetailsState extends State<WebChatDetails> {
   @override
   void initState() {
     super.initState();
-    channel = WebSocketChannel.connect(Uri.parse('wss://34.131.141.162:8080'));
+    channel = WebSocketChannel.connect(
+      Uri.parse('wss://chat-app-ayna-75397f70f5c0.herokuapp.com'),
+    );
     scrollController = ScrollController();
     scrollToBottom();
 
@@ -39,6 +41,10 @@ class _WebChatDetailsState extends State<WebChatDetails> {
         chatProvider.receiveChat(messageModel);
         scrollToBottom();
       }
+    }, onError: (error) {
+      log('WebSocket error: $error');
+    }, onDone: () {
+      log('WebSocket connection closed');
     });
   }
 

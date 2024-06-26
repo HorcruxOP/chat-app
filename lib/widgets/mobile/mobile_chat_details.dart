@@ -25,7 +25,7 @@ class _MobileChatDetailsState extends State<MobileChatDetails> {
   void initState() {
     super.initState();
 
-    channel = WebSocketChannel.connect(Uri.parse('wss://34.131.141.162:8080'));
+    channel = WebSocketChannel.connect(Uri.parse('wss://chat-app-ayna-75397f70f5c0.herokuapp.com'));
     scrollController = ScrollController();
     scrollToBottom();
 

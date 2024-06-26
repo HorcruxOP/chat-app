@@ -70,9 +70,7 @@ class ChatProvider with ChangeNotifier {
   }
 
   void receiveChat(MessageModel messageModel) {
-    log("receive chat call");
     if (!chatBox.isOpen) {
-      log("chatBox is not open yet.");
       return;
     }
 
@@ -81,7 +79,6 @@ class ChatProvider with ChangeNotifier {
         msg.dateTime == messageModel.dateTime);
 
     if (!messageExists) {
-      log("Adding message model: ${messageModel.message}");
       chatBox.add(messageModel);
       notifyListeners();
     }
